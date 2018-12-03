@@ -1,0 +1,76 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cbd65/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cbd65.dir/build.make CMakeFiles/cmTC_cbd65.dir/build
+make[1]: Entering directory '/home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cbd65.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_cbd65.dir/CheckSymbolExists.c.o   -c /home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_cbd65
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cbd65.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_cbd65.dir/CheckSymbolExists.c.o  -o cmTC_cbd65 
+CMakeFiles/cmTC_cbd65.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_cbd65.dir/build.make:97: recipe for target 'cmTC_cbd65' failed
+make[1]: *** [cmTC_cbd65] Error 1
+make[1]: Leaving directory '/home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_cbd65/fast' failed
+make: *** [cmTC_cbd65/fast] Error 2
+
+File /home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_162a3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_162a3.dir/build.make CMakeFiles/cmTC_162a3.dir/build
+make[1]: Entering directory '/home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_162a3.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_162a3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_162a3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_162a3.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_162a3.dir/CheckFunctionExists.c.o  -o cmTC_162a3 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_162a3.dir/build.make:97: recipe for target 'cmTC_162a3' failed
+make[1]: *** [cmTC_162a3] Error 1
+make[1]: Leaving directory '/home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_162a3/fast' failed
+make: *** [cmTC_162a3/fast] Error 2
+
+
+Determining if the function strubded exists failed with the following output:
+Change Dir: /home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e55e1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e55e1.dir/build.make CMakeFiles/cmTC_e55e1.dir/build
+make[1]: Entering directory '/home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e55e1.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -I/usr/include  -I/usr/include/cairo -std=c99 -fPIC -ggdb -Wall -DCHECK_FUNCTION_EXISTS=strubded   -o CMakeFiles/cmTC_e55e1.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e55e1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e55e1.dir/link.txt --verbose=1
+/usr/bin/cc   -I/usr/include  -I/usr/include/cairo -std=c99 -fPIC -ggdb -Wall -DCHECK_FUNCTION_EXISTS=strubded    -rdynamic CMakeFiles/cmTC_e55e1.dir/CheckFunctionExists.c.o  -o cmTC_e55e1 
+CMakeFiles/cmTC_e55e1.dir/CheckFunctionExists.c.o: In function `main':
+/usr/share/cmake-3.10/Modules/CheckFunctionExists.c:17: undefined reference to `strubded'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_e55e1.dir/build.make:97: recipe for target 'cmTC_e55e1' failed
+make[1]: *** [cmTC_e55e1] Error 1
+make[1]: Leaving directory '/home/alecone/catkin_graph/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e55e1/fast' failed
+make: *** [cmTC_e55e1/fast] Error 2
+
+

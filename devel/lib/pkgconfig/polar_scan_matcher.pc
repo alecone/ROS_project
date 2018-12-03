@@ -1,0 +1,8 @@
+prefix=/home/alecone/catkin_graph/devel
+
+Name: polar_scan_matcher
+Description: Description of polar_scan_matcher
+Version: 0.3.2
+Cflags: -I/home/alecone/catkin_graph/src/scan_tools/polar_scan_matcher/include
+Libs: -L/home/alecone/catkin_graph/devel/lib -lpolar_scan_matcher
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/alecone/catkin_graph/install
+
+Name: ncd_parser
+Description: Description of ncd_parser
+Version: 0.3.2
+Cflags: 
+Libs: -L/home/alecone/catkin_graph/install/lib 
+Requires: 

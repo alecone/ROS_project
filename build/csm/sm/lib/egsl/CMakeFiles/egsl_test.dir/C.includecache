@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alecone/catkin_graph/src/csm/sm/lib/egsl/egsl.h
+gsl/gsl_vector.h
+-
+gsl/gsl_matrix.h
+-
+
+/home/alecone/catkin_graph/src/csm/sm/lib/egsl/egsl_macros.h
+egsl.h
+/home/alecone/catkin_graph/src/csm/sm/lib/egsl/egsl.h
+
+/home/alecone/catkin_graph/src/csm/sm/lib/egsl/egsl_test.c
+math.h
+-
+gsl/gsl_math.h
+-
+egsl_macros.h
+/home/alecone/catkin_graph/src/csm/sm/lib/egsl/egsl_macros.h
+

@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/alecone/catkin_graph/devel/lib/libgpc.a  CMakeFiles/gpc.dir/gpc.o CMakeFiles/gpc.dir/gpc_utils.o
+/usr/bin/ranlib /home/alecone/catkin_graph/devel/lib/libgpc.a
