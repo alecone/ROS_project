@@ -1,2 +1,2 @@
-csm:scan_tools/laser_ortho_projector:scan_tools/laser_scan_matcher:scan_tools/laser_scan_sparsifier:scan_tools/laser_scan_splitter:scan_tools/ncd_parser:scan_tools/polar_scan_matcher:scan_tools/scan_to_cloud_converter:scan_tools/scan_tools
+csm:mrpt_slam/mrpt_ekf_slam_2d:mrpt_slam/mrpt_ekf_slam_3d:mrpt_slam/mrpt_graphslam_2d:mrpt_slam/mrpt_icp_slam_2d:mrpt_slam/mrpt_rbpf_slam:mrpt_slam/mrpt_slam:scan_tools/laser_ortho_projector:scan_tools/laser_scan_matcher:scan_tools/laser_scan_sparsifier:scan_tools/laser_scan_splitter:scan_tools/ncd_parser:scan_tools/polar_scan_matcher:scan_tools/scan_to_cloud_converter:scan_tools/scan_tools
 -DCATKIN_DEVEL_PREFIX=/home/alecone/catkin_graph/devel -DCMAKE_INSTALL_PREFIX=/home/alecone/catkin_graph/install -G Unix Makefiles

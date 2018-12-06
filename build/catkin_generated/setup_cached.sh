@@ -7,5 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PKG_CONFIG_PATH="/home/alecone/catkin_graph/devel/lib/pkgconfig:/home/alecone/catkin_ws/devel/lib/pkgconfig:/opt/ros/melodic/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/alecone/catkin_graph/build"

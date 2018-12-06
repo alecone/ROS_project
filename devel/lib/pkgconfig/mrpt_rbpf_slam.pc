@@ -1,0 +1,8 @@
+prefix=/home/alecone/catkin_graph/devel
+
+Name: mrpt_rbpf_slam
+Description: Description of mrpt_rbpf_slam
+Version: 0.1.8
+Cflags: 
+Libs: -L/home/alecone/catkin_graph/devel/lib 
+Requires: nav_msgs sensor_msgs std_msgs visualization_msgs

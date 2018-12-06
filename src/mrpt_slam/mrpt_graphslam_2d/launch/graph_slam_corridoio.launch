@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<!--
+Fri Nov 11 14:26:18 EET 2016, Nikos Koukis
+
+Launchfile for a simple demonstration of the mrpt_graphslam_2d algorithm in
+single robot situations. More elaborate demo files are built on top of this one
+such as the sr_graphslam_demo_gt.launch file
+
+-->
+
+
+<launch>
+    <!-- Beware that the following are modified when this file is included by
+         the sr_graphslam_demo_gt.launch file.
+         
+         **They shold be "default=", NOT "value="**
+    -->
+    <arg name="output" default="screen" />
+	<arg name="robot_ns" default="/" />
+    <arg name="disable_MRPT_visuals" default="false" />
+    <arg name="verbosity" default="0" />
+    <arg name="world" default="empty"/>
+    <arg name="paused" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+
+	<arg name="config_file" default="$(find mrpt_graphslam_2d)/config/ros_laser_odometry.ini"/>
+
+    <!-- Should we also start an instance of rviz ? -->
+    <arg name="start_rviz" default="true" />
+    <arg name="rviz_file" default="$(find mrpt_graphslam_2d)/rviz/sr_graphslam.rviz" />
+
+	<arg name="anchor_frame_ID" default="map" />
+	<arg name="base_link_frame_ID" default="base_link"/>
+	<arg name="laser_frame_ID" default="laser"/>
+	<arg name="odometry_frame_ID" default="odometry"/>
+
+	<arg name="NRD" default="CICPCriteriaNRD" />
+	<arg name="ERD" default="CICPCriteriaERD" />
+	<arg name="GSO" default="CLevMarqGSO" />
+
+	<arg name="is_mr_slam" default="false" />
+
+    <!-- Launch the demo bagfile -->
+    <arg name="use_sim_time" value="true"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!--arg name="world_name" value="$(find mybot_gazebo)/worlds/mybot.world"/-->
+        <arg name="world_name" value="$(find mrpt_graphslam_2d)/worlds/ufficiobase.world"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="debug" value="$(arg debug)"/>
+     </include>
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mrpt_graphslam_2d)/urdf/isar_mobile.xacro'"/>
+
+    <node name="isar_mobile_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-urdf -param robot_description  -model isar_mobile" />
+
+	<group ns="$(arg robot_ns)">
+	    <include file="$(find mrpt_graphslam_2d)/launch/graphslam.launch">
+		    <arg name="output" value="$(arg output)" />
+            <arg name="disable_MRPT_visuals" value="$(arg disable_MRPT_visuals)" />
+  		    <arg name="verbosity" value="$(arg verbosity)" />
+		    <arg name="start_rviz" value="$(arg start_rviz)" />
+		    <arg name="rviz_file" value="$(arg rviz_file)" />
+            <arg name="config_file" value="$(arg config_file)"  />
+		    <arg name="anchor_frame_ID" value="$(arg anchor_frame_ID)" />
+		    <arg name="base_link_frame_ID" value="$(arg base_link_frame_ID)" />
+            <arg name="NRD" value="$(arg NRD)" />
+            <arg name="ERD" value="$(arg ERD)" />
+		    <arg name="GSO" value="$(arg GSO)" />
+		    <arg name="is_mr_slam" value="$(arg is_mr_slam)" />
+	    </include>
+    </group>
+
+    <!-- <remap from="/isar_mobile/laser/scan" to="/input/laser_scan"/> -->
+
+	<!-- <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_laser"
+		args="0 0 0.02 0 0 0 $(arg base_link_frame_ID) $(arg laser_frame_ID)" /> -->
+
+</launch>
