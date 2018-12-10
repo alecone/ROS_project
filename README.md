@@ -11,26 +11,75 @@ Make sure you install the melodic distro of ROS
 Clone this project
 
 ```
-git clone git@this_cool_project
+git clone git@github.com:alecone/ROS_project.git
 ```
 
-<!-- ### Installing
+### Installing
 
-A step by step series of examples that tell you how to get a development env running
+A step by step series of that must be performed in order to make the catkin_make command work propperly (due to a laser_scan_matcher dipendence -csm-)
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+Navigate thru laser_scan_matcher directories and files and find following dirs and edit following header file with user name
 
 ```
-until finished
+gedit /home/YOUR_USER_NAME/catkin_graph/src/scan_tools/laser_scan_matcher/include/laser_scan_matcher/laser_scan_matcher.h
+```
 
-End with an example of getting some data out of the system or using it for a little demo
-``` -->
+And replace in #include <.../csm_all.h> the user name from alecone to yours
+
+Repeat command for file
+
+```
+gedit /home/YOUR_USER_NAME/catkin_graph/src/csm/sm/csm/laser_data_json.h
+```
+And replace in #include <.../json-c/json.h> and <.../json-c/json_more_utils.h> the user name from alecone to yours
+
+Then for 
+
+```
+gedit /home/YOUR_USER_NAME/catkin_graph/src/csm/sm/csm/hsm/hsm_interface.h
+```
+Replace in #include <.../options/options.h> the user name from alecone to yours
+
+Again for 
+
+```
+gedit /home/YOUR_USER_NAME/catkin_graph/src/csm/sm/csm/json_journal.h
+```
+Replace in #include <.../json-c/json.h> and <.../json-c/json_more_utils.h> the user name from alecone to yours
+
+Lastly in file 
+
+```
+gedit /home/YOUR_USER_NAME/catkin_graph/src/csm/sm/csm/math_utils_gsl.h
+```
+Replace in #include <.../egsl/egsl.h> the user name from alecone to yours
+
+### Alternatives (Not Tested)
+
+If you don't want to follow the above installation steps you can also do this:
+
+1. Remove the csm folder within the src folder of the project directory
+
+2. Edit file '/home/YOUR_USER_NAME/catkin_graph/src/scan_tools/laser_scan_matcher/include/laser_scan_matcher/laser_scan_matcher.h'
+
+By commenting line 59 and uncommenting line 58
+
+3. clone this original csm repository within the src folder of your catckin_graph directory with commad
+
+```
+git clone git@github.com:AndreaCensi/csm.git
+```
+4. Install csm with install_quickstart.sh in csm folder
+
+```
+./install_quickstart.sh
+```
+5. Add compiled library to ~/.bashrc with command 
+
+```
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/YOUR_USER_NAME/catkin_graph/src/csm/sm/lib:/home/YOUR_USER_NAME/catkin_graph/src/csm/sm
+```
+
 
 ## Running the tests
 
