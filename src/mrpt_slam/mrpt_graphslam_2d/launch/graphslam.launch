@@ -40,7 +40,7 @@ Refer to the README.md file for usage information
     </group>
     <group ns="files">
 		<param name="config" value="$(arg config_file)" />
-		<param name="grount_truth" value="" />
+		<param name="grount_truth" value="NavSimul" />
 	</group>
 	<group ns="misc">
 		<param name="disable_MRPT_visuals" value="$(arg disable_MRPT_visuals)" type="bool" />
