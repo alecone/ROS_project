@@ -47,7 +47,7 @@ such as the sr_graphslam_demo_gt.launch file
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <!--arg name="world_name" value="$(find mybot_gazebo)/worlds/mybot.world"/-->
-        <arg name="world_name" value="$(find mrpt_graphslam_2d)/worlds/corridoio_valigi.world"/>
+        <arg name="world_name" value="$(find mrpt_graphslam_2d)/worlds/ufficiobase.world"/>
         <arg name="paused" value="$(arg paused)"/>
         <arg name="use_sim_time" value="$(arg use_sim_time)"/>
         <arg name="gui" value="$(arg gui)"/>
@@ -77,11 +77,12 @@ such as the sr_graphslam_demo_gt.launch file
 	    </include>
     </group>
 
-    <!-- <node pkg="laser_scan_matcher" type="laser_scan_matcher_node"
+    <node pkg="laser_scan_matcher" type="laser_scan_matcher_node"
         name="laser_scan_matcher_node" output="screen">
 
         <param name="max_iterations" value="10"/>
-    </node> -->
+        <!-- <remap from="/input/laser_scan" to="/isar_mobile/laser/scan"/> -->
+    </node>
 
 	<!-- <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_laser"
 		args="0 0 0.02 0 0 0 $(arg base_link_frame_ID) $(arg laser_frame_ID)" /> -->

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<!--
+Fri Nov 11 14:26:18 EET 2016, Nikos Koukis
+
+Launchfile for a simple demonstration of the mrpt_graphslam_2d algorithm in
+single robot situations. More elaborate demo files are built on top of this one
+such as the sr_graphslam_demo_gt.launch file
+
+-->
+
+
+<launch>
+    <!-- Beware that the following are modified when this file is included by
+         the sr_graphslam_demo_gt.launch file.
+         
+         **They shold be "default=", NOT "value="**
+    -->
+    <arg name="world" default="empty"/>
+    <arg name="paused" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="use_sim_time" value="true"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!--arg name="world_name" value="$(find mybot_gazebo)/worlds/mybot.world"/-->
+        <arg name="world_name" value="$(find mrpt_graphslam_2d)/worlds/corridoio_valigi.world"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="debug" value="$(arg debug)"/>
+     </include>
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mrpt_graphslam_2d)/urdf/isar_mobile.xacro'"/>
+
+    <node name="isar_mobile_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-urdf -param robot_description  -model isar_mobile" />
+
+    <node pkg="laser_scan_matcher" type="laser_scan_matcher_node"
+        name="laser_scan_matcher_node" output="screen">
+
+        <param name="max_iterations" value="10"/>
+        <remap from="/scan" to="/isar_mobile/laser/scan"/>
+    </node>
+
+	<!-- <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_laser"
+		args="0 0 0.02 0 0 0 $(arg base_link_frame_ID) $(arg laser_frame_ID)" /> -->
+
+</launch>

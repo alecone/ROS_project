@@ -1,0 +1,2 @@
+ 2006  rosrun map_server map_saver -f map /map:=/feedback/gridmap
+ 2010  rosrun map_server map_server map.yaml /map:=/feedback/gridmap
